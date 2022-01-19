@@ -6,6 +6,7 @@ from phase12 import auth
 from phase12.db_connector import DBConnector
 from phase12.email_service import EmailService
 from phase12.repository import UserRepository
+from phase3.menu import phase3Menu
 
 load_dotenv(".env")
 if __name__ == "__main__":
@@ -30,16 +31,16 @@ if __name__ == "__main__":
         user_choice = int(
             input(
                 "Choose from the list below: \n"
-                "1. Signup.\n"
-                "2. Signin.\n"
-                "4. Quit.\n"
+                "1. Sign up.\n"
+                "2. Sign in.\n"
+                "3. Quit.\n"
             )
         )
         if user_choice == 1:
             auth.sign_up(user_repo=user_repo)
             print()
-            print()
         elif user_choice == 2:
             auth.login(user_repo=user_repo)
-            print()
-            print()
+            while 1:
+                phase3Menu()
+                print()
