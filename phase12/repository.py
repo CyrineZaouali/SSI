@@ -57,8 +57,8 @@ class UserRepository:
         if pass_verification is True:
             code = random.randint(100000, 999999)
             self.email_service.sendVerificationCode(receiver_email=user.email, receiver_name=user.first_name, code=code)
-            verification_code = int(input("Enter your verification code:"))
+            verification_code = int(input("Enter the verification code we sent you on your email:"))
             if verification_code == code:
                 return True
-            print("valication failed")
+            print("verification failed")
             return False

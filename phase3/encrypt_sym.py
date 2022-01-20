@@ -48,8 +48,8 @@ def decrypt_aes256_cli():
 
 menu = {
     "4-1": {"message": "Encrypt Message DES", "func": encrypt_des_cli},
-    "4-2": {"message": "Encrypt Message AES256", "func": encrypt_aes256_cli},
-    "4-3": {"message": "Decrypt Message DES", "func": decrypt_des_cli},
+    "4-2": {"message": "Decrypt Message DES", "func": decrypt_des_cli},
+    "4-3": {"message": "Encrypt Message AES256", "func": encrypt_aes256_cli},
     "4-4": {"message": "Decrypt Message AES256", "func": decrypt_aes256_cli},
 }
 
