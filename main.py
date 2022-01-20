@@ -27,7 +27,7 @@ if __name__ == "__main__":
         sender_email=EMAIL_LOGIN, sender_password=EMAIL_PASSWORD
     )
     user_repo = UserRepository(db_connector=conn, email_service=email_service)
-    while user_choice != 4:
+    while user_choice != 3:
         user_choice = int(
             input(
                 "Choose from the list below: \n"
@@ -40,7 +40,8 @@ if __name__ == "__main__":
             auth.sign_up(user_repo=user_repo)
             print()
         elif user_choice == 2:
-            auth.login(user_repo=user_repo)
-            while 1:
-                phase3Menu()
-                print()
+            login_result = auth.login(user_repo=user_repo)
+            if login_result is True:
+                while 1:
+                    phase3Menu()
+                    print()

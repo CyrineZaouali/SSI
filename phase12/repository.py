@@ -50,16 +50,15 @@ class UserRepository:
 
     def login(self, email: str, password: str):
         result = self.get_user_by_email(email=email)
-        random_number = random.randint(100000, 999999)
         if result is None:
             return False
         user = User(query_result=result)
         pass_verification = sha512_crypt.verify(password, user.password)
-        return pass_verification
-        # if pass_verification is True:
-        #     content = f"Code: {random_number}"
-        #     self.email_service.send_email(receiver_email=user.email, content=content)
-        #     verification_code = int(input("Enter your verification code:"))
-        #     if verification_code == random_number:
-        #         return True
-        #     return False
+        if pass_verification is True:
+            code = random.randint(100000, 999999)
+            self.email_service.sendVerificationCode(receiver_email=user.email, receiver_name=user.first_name, code=code)
+            verification_code = int(input("Enter your verification code:"))
+            if verification_code == code:
+                return True
+            print("valication failed")
+            return False

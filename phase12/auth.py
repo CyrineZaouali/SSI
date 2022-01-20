@@ -75,3 +75,4 @@ def login(user_repo: UserRepository):
         print("Login Successfully!")
     else:
         print("Please verify your email and password and re-login!")
+    return login_result
