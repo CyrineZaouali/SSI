@@ -27,22 +27,21 @@ if __name__ == "__main__":
         sender_email=EMAIL_LOGIN, sender_password=EMAIL_PASSWORD
     )
     user_repo = UserRepository(db_connector=conn, email_service=email_service)
-    phase3Menu()
-    # while user_choice != 3:
-    #     user_choice = int(
-    #         input(
-    #             "Choose from the list below: \n"
-    #             "1. Sign up.\n"
-    #             "2. Sign in.\n"
-    #             "3. Quit.\n"
-    #         )
-    #     )
-    #     if user_choice == 1:
-    #         auth.sign_up(user_repo=user_repo)
-    #         print()
-    #     elif user_choice == 2:
-    #         login_result = auth.login(user_repo=user_repo)
-    #         if login_result is True:
-    #             while 1:
-    #                 phase3Menu()
-    #                 print()
+    while user_choice != 3:
+        user_choice = int(
+            input(
+                "Choose from the list below: \n"
+                "1. Sign up.\n"
+                "2. Sign in.\n"
+                "3. Quit.\n"
+            )
+        )
+        if user_choice == 1:
+            auth.sign_up(user_repo=user_repo)
+            print()
+        elif user_choice == 2:
+            login_result = auth.login(user_repo=user_repo)
+            if login_result is True:
+                while 1:
+                    phase3Menu()
+                    print()
